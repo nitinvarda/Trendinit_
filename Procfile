@@ -1,0 +1,1 @@
+$ echo "web: nodemon ./bin/www"
