@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trendinit/International</title>
+    <title>Trendinit</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -24,9 +24,9 @@
         </div>
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li><a href="/Sports">Sports</a></li>
-            <li class="active"><a href="/Movies">Movies</a></li>
+            <li><a href="/Movies">Movies</a></li>
             <li><a href="/Technology">Technology</a></li>
             <li><a href="/Politics">Politics</a></li>
             <li><a href="/International">International</a></li>
@@ -37,19 +37,33 @@
       </div>
     </nav>
     <div class="container">
-      <h1>International</h1>
+      <h1>Welcome Admin</h1>
+      <h2>Any one who is authenticated can add,update and delete posts </h2>
+      <button><a href="../admin/logout">Logout</a></button>
+      <br>
+      <h4><a href="https://covid19indian-state.netlify.app/" target="blank">Click Here</a> to see Live Corona cases in india </h4>
       <h2>Latest posts</h2>
+      <h3>Add a newpost here <a href="/admin-main/add-post">Add</a></h3>
       <hr />
       <div>
 
-        <% for(let i=0;i<data.length;i++) {%>
-          <h2><%= data[i].title %></h2>
-          <h5>Article by:<b><i> <%= data[i].by %></i></b> --&nbsp; Category:<b><i>  <%= data[i].category %></i></b> --&nbsp; Date: <%= data[i].date %> - IST[Indian Standard Time]  </h5>
-          <br />
-          <h4><%= data[i].desc %></h4>
-          <hr>
-        <% } %>
+          <% for(let i=0;i<data.length;i++) {%>
+              <h2><%= data[i].title %></h2>
+              <h5>Article by:<b><i> <%= data[i].by %></i></b> --&nbsp; Category:<b><i>  <%= data[i].category %></i></b> --&nbsp; Date: <%= data[i].date %> - IST[Indian Standard Time]  </h5>
+              <br />
+              <h4><%= data[i].desc %></h4>
+              <a href="/admin-main/update/<%= data[i].id %>">Update</a>&nbsp;&nbsp;
+              <a href="/admin-main/delete/<%= data[i].id %>">Delete</a>
+              <hr>
+            <% } %>
       </div>
+      <ul class="pagination">
+        <li class="active"><a href="/">1</a></li>
+        <li><a href="/page-2">2</a></li>
+        <li><a href="/page-3">3</a></li>
+        <li><a href="/page-4">4</a></li>
+        <li><a href="/page-5">5</a></li>
+      </ul>
     </div>
   </body>
 </html>

@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var article = require("../Schema");
 
 router.get("/", (req, res) => {
-  res.render("savepost");
+  res.render(".././views/AdminPage/add-post");
 });
 
 router.post("/", (req, res) => {
@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
   });
   new_article.save((err) => {
     if (err) return console.error(err);
-    res.send("saved successfully");
+    res.render("savepost");
   });
 });
 

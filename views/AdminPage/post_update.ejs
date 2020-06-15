@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trendint/HomePage/3</title>
+    <title>Trendinit</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -15,10 +15,15 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">Trendinit</a>
         </div>
@@ -32,31 +37,32 @@
             <li><a href="/International">International</a></li>
             <li><a href="/Others">Others</a></li>
           </ul>
-         
         </div>
       </div>
     </nav>
-   
     <div class="container">
-     
-      <hr />
-      <div>
-
-          <% for(let i=0;i<data.length;i++) {%>
-              <h2><%= data[i].title %></h2>
-              <h5>Article by:<b><i> <%= data[i].by %></i></b> --&nbsp; Category:<b><i>  <%= data[i].category %></i></b> --&nbsp; Date: <%= data[i].date %> - IST[Indian Standard Time]  </h5>
-              <br />
-              <h4><%= data[i].desc %></h4>
-              <hr>
-            <% } %>
-      </div>
-      <ul class="pagination">
-        <li><a href="/">1</a></li>
-        <li><a href="/page-2">2</a></li>
-        <li class="active"><a href="/page-3">3</a></li>
-        <li><a href="/page-4">4</a></li>
-        <li><a href="/page-5">5</a></li>
-      </ul>
+      <h1>Hello <%= dat[0].by %></h1>
+      <h2>you can update post here</h2>
+      <form action="/admin-main/update/<%= dat[0].id %>" method="POST">
+        <label>Title</label>
+        <input type="text" name="title" value="<%= dat[0].title %>" />
+        <label>category</label>
+        <select name="category">
+          <option value="Sports">Sports</option>
+          <option value="Politics">Politics</option>
+          <option value="Cinema">Cinema</option>
+          <option value="Technology">Technology</option>
+          <option value="Automobile">Automobile</option>
+          <option value="International">International</option>
+          <option valure="Others">Others</option>
+        </select>
+        <label>By</label>
+        <input name="by" type="text" value="<%= dat[0].by %>" />
+        <br />
+        <label>Description</label>
+        <textarea rows="4" cols="45" name="desc"><%= dat[0].desc %></textarea>
+        <input type="submit" value="Update" />
+      </form>
     </div>
   </body>
 </html>
